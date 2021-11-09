@@ -29,30 +29,40 @@ public class VoiceController : MonoBehaviour
 
     private void TurnLeft()
     {
-        transform.Rotate(0f, -30f, 0f);
+        transform.Rotate(0f, -90f, 0f);
     }
 
     private void TurnRight()
     {
-        transform.Rotate(0f, 30f, 0f);
+        transform.Rotate(0f, 90f, 0f);
     }
 
     private void MoveForward()
     {
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
-        playerBody.velocity = transform.forward * 5f;
+        playerBody.velocity = transform.forward * 25f;
     }
 
     private void Backwards()
     {
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
-        playerBody.velocity = transform.forward * -5f;
+        playerBody.velocity = transform.forward * -25f;
     }
 
     private void PickUp()
     {
 
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.tag == "Wall")
+        {
+            playerBody.velocity = transform.forward * 0f;
+            TurnLeft();
+        }
+    }
+
 
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
