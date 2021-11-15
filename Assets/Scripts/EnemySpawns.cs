@@ -9,13 +9,19 @@ public class EnemySpawns : MonoBehaviour
     public GameObject enemy;
     public Transform enemySpawnpoint;
 
+    bool isCreated = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (player.position.x > entersMaze.position.x || player.position.z > entersMaze.position.z)
+        if (isCreated == false)
         {
-            Instantiate(enemy, enemySpawnpoint.position, Quaternion.identity);
+            if (player.position.x > entersMaze.position.x || player.position.z > entersMaze.position.z)
+            {
+                Instantiate(enemy, enemySpawnpoint.position, Quaternion.identity);
+                isCreated = true;
+            }
         }
+        
     }
 }
