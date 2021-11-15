@@ -6,7 +6,7 @@ public class EnemySpawns : MonoBehaviour
 {
     public Transform player;
     public Transform entersMaze;
-    public GameObject enemy;
+    public Transform enemy;
     public Transform enemySpawnpoint;
 
     bool isCreated = false;
@@ -18,10 +18,12 @@ public class EnemySpawns : MonoBehaviour
         {
             if (player.position.x > entersMaze.position.x || player.position.z > entersMaze.position.z)
             {
-                Instantiate(enemy, enemySpawnpoint.position, Quaternion.identity);
+                //Instantiate(enemy, enemySpawnpoint.position, Quaternion.identity);
+                enemy.position = enemySpawnpoint.position;
                 isCreated = true;
             }
         }
+
         
     }
 }
