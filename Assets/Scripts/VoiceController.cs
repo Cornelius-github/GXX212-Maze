@@ -74,6 +74,7 @@ public class VoiceController : MonoBehaviour
         if (collider.tag == "Stop")
         {
             playerBody.velocity = transform.forward * 0f;
+            playerBody.freezeRotation = true;
         }
         if (collider.tag == "Enemy")
         {
