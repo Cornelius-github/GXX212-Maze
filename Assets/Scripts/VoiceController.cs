@@ -56,10 +56,24 @@ public class VoiceController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.tag == "Wall")
+        if(collider.tag == "Wall Right")
+        {
+            playerBody.velocity = transform.forward * 0f;
+            TurnRight();
+        }
+        if (collider.tag == "Wall Left")
         {
             playerBody.velocity = transform.forward * 0f;
             TurnLeft();
+        }
+        if (collider.tag == "Wall Back")
+        {
+            playerBody.velocity = transform.forward * 0f;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        if (collider.tag == "Enemy")
+        {
+            //the player loses
         }
     }
 
