@@ -36,6 +36,26 @@ public class Enemy : MonoBehaviour
         var playerMove = playerLocation - playerStart;
         var enemyMove = enemyLocation - enemyStart;
 
+        /*
+        //using x or z value as the player cannot jump
+
+        float xplayerDistance = playerLocation.x - playerStart.x;
+        float zplayerDistance = playerLocation.z - playerStart.z;
+
+        float xenemyDistance = enemyLocation.x - enemyStart.x;
+        float zenemyDistance = enemyLocation.z - enemyStart.z;
+
+        if (xplayerDistance > xenemyDistance || zplayerDistance > zenemyDistance)
+        {
+            agent.SetDestination(player.position);
+        }
+        else
+        {
+            agent.Stop();
+            playerStart = player.position;
+        }
+
+        */
         if (playerLocation != playerStart)
         {
             //agent.SetDestination(player.position);
