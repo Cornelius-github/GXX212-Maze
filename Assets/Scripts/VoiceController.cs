@@ -71,6 +71,10 @@ public class VoiceController : MonoBehaviour
             playerBody.velocity = transform.forward * 0f;
             transform.Rotate(0f, 180f, 0f);
         }
+        if (collider.tag == "Stop")
+        {
+            playerBody.velocity = transform.forward * 0f;
+        }
         if (collider.tag == "Enemy")
         {
             //the player loses
