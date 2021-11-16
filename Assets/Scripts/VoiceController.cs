@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using UnityEngine.SceneManagement;
 
 public class VoiceController : MonoBehaviour
 {
@@ -21,10 +22,35 @@ public class VoiceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //opening the menus
+        commandActions.Add("main menu", TheMenu);
+        //movement commands
+        //turning left
         commandActions.Add("turn left", TurnLeft);
+        commandActions.Add("go left", TurnLeft);
+        commandActions.Add("left", TurnLeft);
+        //turning right
         commandActions.Add("turn right", TurnRight);
+        commandActions.Add("go right", TurnRight);
+        commandActions.Add("right", TurnRight);
+        //going forward
         commandActions.Add("move forward", MoveForward);
+        commandActions.Add("go forward", MoveForward);
+        commandActions.Add("forward", MoveForward);
+        commandActions.Add("run", MoveForward);
+        commandActions.Add("walk", MoveForward);
+        //going back
         commandActions.Add("go back", Backwards);
+        commandActions.Add("back", Backwards);
+        commandActions.Add("run back", Backwards);
+        //full rotation
+        commandActions.Add("turn around", FullRotate);
+        commandActions.Add("turn back", FullRotate);
+        commandActions.Add("do a 180", FullRotate);
+        commandActions.Add("u turn", FullRotate);
+        commandActions.Add("look behind you", FullRotate);
+        commandActions.Add("look behind", FullRotate);
+        commandActions.Add("behind you", FullRotate);
 
         commandRecognizer = new KeywordRecognizer(commandActions.Keys.ToArray());
         commandRecognizer.OnPhraseRecognized += OnKeywordsRecognised;
@@ -35,9 +61,18 @@ public class VoiceController : MonoBehaviour
         move = GameObject.FindGameObjectWithTag("Enemy");
     }
 
+    private void TheMenu()
+    {
+        SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
+
     private void TurnLeft()
     {
         transform.Rotate(0f, -90f, 0f);
+    }
+    private void FullRotate()
+    {
+        transform.Rotate(0f, -180f, 0f);
     }
 
     private void TurnRight()
