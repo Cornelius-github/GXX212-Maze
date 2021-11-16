@@ -142,6 +142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8416380471265377214, guid: f702235131fe0c84bac568baf23e3468, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 9189363999517368580, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -732,6 +736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c3a662baee60547ae1ff227d0d6b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 524984471}
+  torch: {fileID: 0}
+  enemy: {fileID: 45401629}
 --- !u!54 &524984473
 Rigidbody:
   m_ObjectHideFlags: 0

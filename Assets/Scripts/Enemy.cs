@@ -13,11 +13,13 @@ public class Enemy : MonoBehaviour
     public Transform enemy;
 
     Vector3 playerStart;
-    Vector3 playerLocation;
+    public Vector3 playerLocation;
     Vector3 enemyStart;
-    Vector3 enemyLocation;
+    public Vector3 enemyLocation;
 
     Rigidbody enemyBody;
+
+    public bool playerMoving = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +32,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerLocation = player.position;
-        enemyLocation = enemy.position;
-
-        var playerMove = playerLocation - playerStart;
-        var enemyMove = enemyLocation - enemyStart;
-
         /*
         //using x or z value as the player cannot jump
 
@@ -55,13 +51,34 @@ public class Enemy : MonoBehaviour
             playerStart = player.position;
         }
 
-        */
         if (playerLocation != playerStart)
         {
             //agent.SetDestination(player.position);
             StartCoroutine(EnemyChase());
         }
-        
+        */
+        /*
+        agent.SetDestination(player.position);
+
+        float playerMoveDistance = Vector3.Distance(playerStart, playerLocation);
+        if (Vector3.Distance(playerStart, enemyStart) > playerMoveDistance)
+        {
+            agent.Stop();
+            playerLocation = player.position;
+            enemyLocation = enemy.position;
+        }
+        */
+
+        if (playerMoving == true)
+        {
+            agent.Stop();
+            //playerLocation = player.position;
+            //enemyLocation = enemy.position;
+        }
+        else
+        {
+            agent.SetDestination(player.position);
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -80,6 +97,10 @@ public class Enemy : MonoBehaviour
         {
             enemyBody.velocity = transform.forward * 0f;
             transform.Rotate(0f, 180f, 0f);
+        }
+        if (collider.tag == "Stop")
+        {
+            enemyBody.velocity = transform.forward * 0f;
         }
     }
 

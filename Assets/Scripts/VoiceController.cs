@@ -12,6 +12,12 @@ public class VoiceController : MonoBehaviour
 
     Rigidbody playerBody;
 
+    public Transform player;
+    public Transform torch;
+    public Transform enemy;
+
+    GameObject move;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +31,8 @@ public class VoiceController : MonoBehaviour
         commandRecognizer.Start();
 
         playerBody = GetComponent<Rigidbody>();
+
+        move = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     private void TurnLeft()
@@ -41,12 +49,14 @@ public class VoiceController : MonoBehaviour
     {
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
         playerBody.velocity = transform.forward * 25f;
+        move.GetComponent<Enemy>().playerMoving = true;
     }
 
     private void Backwards()
     {
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
         playerBody.velocity = transform.forward * -25f;
+        move.GetComponent<Enemy>().playerMoving = true;
     }
 
     private void PickUp()
@@ -60,25 +70,40 @@ public class VoiceController : MonoBehaviour
         {
             playerBody.velocity = transform.forward * 0f;
             TurnRight();
+            move.GetComponent<Enemy>().playerMoving = false;
+            move.GetComponent<Enemy>().playerLocation = player.position;
+            move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
         if (collider.tag == "Wall Left")
         {
             playerBody.velocity = transform.forward * 0f;
             TurnLeft();
+            move.GetComponent<Enemy>().playerMoving = false;
+            move.GetComponent<Enemy>().playerLocation = player.position;
+            move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
         if (collider.tag == "Wall Back")
         {
             playerBody.velocity = transform.forward * 0f;
             transform.Rotate(0f, 180f, 0f);
+            move.GetComponent<Enemy>().playerMoving = false;
+            move.GetComponent<Enemy>().playerLocation = player.position;
+            move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
         if (collider.tag == "Stop")
         {
             playerBody.velocity = transform.forward * 0f;
             playerBody.freezeRotation = true;
+            move.GetComponent<Enemy>().playerMoving = false;
+            move.GetComponent<Enemy>().playerLocation = player.position;
+            move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
         if (collider.tag == "Enemy")
         {
             //the player loses
+            move.GetComponent<Enemy>().playerMoving = false;
+            move.GetComponent<Enemy>().playerLocation = player.position;
+            move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
     }
 
