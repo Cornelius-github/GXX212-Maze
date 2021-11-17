@@ -68,16 +68,15 @@ public class Enemy : MonoBehaviour
             enemyLocation = enemy.position;
         }
         */
-
+        //float playerMoveDistance = Vector3.Distance(playerStart, playerLocation);
         if (playerMoving == true)
         {
-            agent.Stop();
-            //playerLocation = player.position;
-            //enemyLocation = enemy.position;
+            agent.isStopped = false;
+            agent.SetDestination(player.position);
         }
         else
         {
-            agent.SetDestination(player.position);
+            agent.isStopped = true;
         }
     }
 
