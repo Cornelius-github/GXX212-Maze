@@ -142,7 +142,7 @@ public class VoiceController : MonoBehaviour
         }
     }
 
-
+    
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
