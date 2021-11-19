@@ -22,17 +22,27 @@ public class VoiceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //opening the menus
+        //opening the main menu
         commandActions.Add("main menu", TheMenu);
+        commandActions.Add("main", TheMenu);
+        //pausing the game
+        commandActions.Add("pause", PauseMenu);
+        commandActions.Add("pause menu", PauseMenu);
         //movement commands
         //turning left
         commandActions.Add("turn left", TurnLeft);
         commandActions.Add("go left", TurnLeft);
         commandActions.Add("left", TurnLeft);
+        commandActions.Add("rotate left", TurnLeft);
+        commandActions.Add("rotate anti clockwise", TurnLeft);
+        commandActions.Add("turn anti clockwise", TurnLeft);
         //turning right
         commandActions.Add("turn right", TurnRight);
         commandActions.Add("go right", TurnRight);
         commandActions.Add("right", TurnRight);
+        commandActions.Add("rotate right", TurnRight);
+        commandActions.Add("rotate clockwise", TurnRight);
+        commandActions.Add("turn clockwise", TurnRight);
         //going forward
         commandActions.Add("move forward", MoveForward);
         commandActions.Add("go forward", MoveForward);
@@ -64,6 +74,11 @@ public class VoiceController : MonoBehaviour
     private void TheMenu()
     {
         SceneManager.LoadScene(sceneBuildIndex: 0);
+    }
+
+    private void PauseMenu()
+    {
+        //SceneManager.LoadScene(sceneBuildIndex: 2);
     }
 
     private void TurnLeft()
