@@ -5,9 +5,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject disclaimerPanel;
+
     private Dictionary<string, Action> commandActions = new Dictionary<string, Action>();
     private KeywordRecognizer commandRecognizer;
 
@@ -16,6 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         commandActions.Add("Start Game", startG);
         commandActions.Add("Quit Game", quitG);
+        commandActions.Add("Done", disclaim);
 
         commandRecognizer = new KeywordRecognizer(commandActions.Keys.ToArray());
         commandRecognizer.OnPhraseRecognized += OnKeywordsRecognised;
@@ -31,6 +35,13 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void disclaim()
+    {
+        disclaimerPanel.SetActive(false);
+    }
+
+
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
