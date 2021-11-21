@@ -14,10 +14,10 @@ public class VoiceController : MonoBehaviour
     Rigidbody playerBody;
 
     public Transform player;
-    public Transform torch;
     public Transform enemy;
 
     GameObject move;
+    GameObject torch;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +69,7 @@ public class VoiceController : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
 
         move = GameObject.FindGameObjectWithTag("Enemy");
+        torch = GameObject.FindGameObjectWithTag("Torch");
     }
 
     private void TheMenu()
@@ -100,6 +101,7 @@ public class VoiceController : MonoBehaviour
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
         playerBody.velocity = transform.forward * 25f;
         move.GetComponent<Enemy>().playerMoving = true;
+        torch.GetComponent<Torch>().torchLife -= 5;
     }
 
     private void Backwards()
@@ -107,6 +109,7 @@ public class VoiceController : MonoBehaviour
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
         playerBody.velocity = transform.forward * -25f;
         move.GetComponent<Enemy>().playerMoving = true;
+        torch.GetComponent<Torch>().torchLife -= 5;
     }
 
     private void PickUp()
