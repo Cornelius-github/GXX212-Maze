@@ -11,7 +11,6 @@ public class MainMenu : MonoBehaviour
     private Dictionary<string, Action> commandActions = new Dictionary<string, Action>();
     private KeywordRecognizer commandRecognizer;
 
-
     // Start is called before the first frame update
     void Start()
     {
