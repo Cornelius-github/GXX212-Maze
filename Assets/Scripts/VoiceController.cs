@@ -114,7 +114,8 @@ public class VoiceController : MonoBehaviour
 
     private void PickUp()
     {
-
+        //for when they pick up a battery
+        torch.GetComponent<Torch>().torchLife = 100;
     }
 
     private void OnTriggerEnter(Collider collider)
