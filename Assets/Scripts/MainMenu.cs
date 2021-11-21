@@ -14,26 +14,23 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        commandActions.Add("Open the Game", playGame);
-        commandActions.Add("I am Done", quitGame);
+        commandActions.Add("Start Game", startG);
+        commandActions.Add("Quit Game", quitG);
 
         commandRecognizer = new KeywordRecognizer(commandActions.Keys.ToArray());
         commandRecognizer.OnPhraseRecognized += OnKeywordsRecognised;
         commandRecognizer.Start();
     }
 
-    void playGame()
+    private void startG()
     {
         SceneManager.LoadScene(sceneBuildIndex:1);
-        Debug.Log("Played");
     }
 
-    void quitGame()
+    private void quitG()
     {
         Application.Quit();
-        Debug.Log("Raged");
     }
-
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
