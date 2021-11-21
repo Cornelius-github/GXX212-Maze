@@ -159,6 +159,13 @@ public class VoiceController : MonoBehaviour
             move.GetComponent<Enemy>().playerLocation = player.position;
             move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
+        if (collider.tag == "Batteries")
+        {
+            //the player has gone over a battery
+            torch.GetComponent<Torch>().torchLife = 100;
+            //destroys the object that has been collided with, i believe this gets rid of the battery
+            Destroy(collider);
+        }
     }
 
     
