@@ -15,7 +15,6 @@ public class VoiceController : MonoBehaviour
     Rigidbody playerBody;
 
     public Transform player;
-    public Transform torch;
     public Transform enemy;
 
     public Transform Left;
@@ -26,6 +25,7 @@ public class VoiceController : MonoBehaviour
     private NavMeshAgent Player;
 
     GameObject move;
+    GameObject torch;
 
     // Start is called before the first frame update
     void Start()
