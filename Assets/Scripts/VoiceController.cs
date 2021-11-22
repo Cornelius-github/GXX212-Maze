@@ -104,20 +104,22 @@ public class VoiceController : MonoBehaviour
     private void TurnRight()
     {
         //transform.Rotate(0f, 90f, 0f);
-        Player.SetDestination(Left.position);
+        Player.SetDestination(Right.position);
     }
 
     private void MoveForward()
     {
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
-        playerBody.velocity = transform.forward * 25f;
+        //playerBody.velocity = transform.forward * 25f;
+        Player.SetDestination(Forward.position);
         move.GetComponent<Enemy>().playerMoving = true;
     }
 
     private void Backwards()
     {
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
-        playerBody.velocity = transform.forward * -25f;
+        //playerBody.velocity = transform.forward * -25f;
+        Player.SetDestination(Back.position);
         move.GetComponent<Enemy>().playerMoving = true;
     }
 
