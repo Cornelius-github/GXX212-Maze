@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class VoiceController : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class VoiceController : MonoBehaviour
     public Transform player;
     public Transform torch;
     public Transform enemy;
+
+    public Transform Left;
+    public Transform Right;
+    public Transform Forward;
+    public Transform Back;
+
+    private NavMeshAgent Player;
 
     GameObject move;
 
@@ -69,6 +77,8 @@ public class VoiceController : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
 
         move = GameObject.FindGameObjectWithTag("Enemy");
+
+        Player = GetComponent<NavMeshAgent>();
     }
 
     private void TheMenu()
@@ -83,7 +93,8 @@ public class VoiceController : MonoBehaviour
 
     private void TurnLeft()
     {
-        transform.Rotate(0f, -90f, 0f);
+        //transform.Rotate(0f, -90f, 0f);
+        Player.SetDestination(Left.position);
     }
     private void FullRotate()
     {
@@ -92,7 +103,8 @@ public class VoiceController : MonoBehaviour
 
     private void TurnRight()
     {
-        transform.Rotate(0f, 90f, 0f);
+        //transform.Rotate(0f, 90f, 0f);
+        Player.SetDestination(Left.position);
     }
 
     private void MoveForward()
