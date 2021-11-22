@@ -641,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 174962655}
     - target: {fileID: 7972120745832828123, guid: 57186869bd4b1154e99e91513b0d0b51, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7972120745832828123, guid: 57186869bd4b1154e99e91513b0d0b51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2408,7 +2408,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

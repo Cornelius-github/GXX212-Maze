@@ -30,53 +30,18 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        /*
-        //using x or z value as the player cannot jump
-
-        float xplayerDistance = playerLocation.x - playerStart.x;
-        float zplayerDistance = playerLocation.z - playerStart.z;
-
-        float xenemyDistance = enemyLocation.x - enemyStart.x;
-        float zenemyDistance = enemyLocation.z - enemyStart.z;
-
-        if (xplayerDistance > xenemyDistance || zplayerDistance > zenemyDistance)
-        {
-            agent.SetDestination(player.position);
-        }
-        else
-        {
-            agent.Stop();
-            playerStart = player.position;
-        }
-
-        if (playerLocation != playerStart)
-        {
-            //agent.SetDestination(player.position);
-            StartCoroutine(EnemyChase());
-        }
-        */
-        /*
-        agent.SetDestination(player.position);
-
-        float playerMoveDistance = Vector3.Distance(playerStart, playerLocation);
-        if (Vector3.Distance(playerStart, enemyStart) > playerMoveDistance)
-        {
-            agent.Stop();
-            playerLocation = player.position;
-            enemyLocation = enemy.position;
-        }
-        */
-        //float playerMoveDistance = Vector3.Distance(playerStart, playerLocation);
         if (playerMoving == true)
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
+            Debug.Log("Moving");
         }
         else
         {
             agent.isStopped = true;
+            Debug.Log("Stopped");
         }
     }
 
