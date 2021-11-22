@@ -77,6 +77,7 @@ public class VoiceController : MonoBehaviour
         playerBody = GetComponent<Rigidbody>();
 
         move = GameObject.FindGameObjectWithTag("Enemy");
+        torch = GameObject.FindGameObjectWithTag("Torch");
 
         Player = GetComponent<NavMeshAgent>();
     }
@@ -113,6 +114,7 @@ public class VoiceController : MonoBehaviour
         //playerBody.velocity = transform.forward * 25f;
         Player.SetDestination(Forward.position);
         move.GetComponent<Enemy>().playerMoving = true;
+        torch.GetComponent<TorchLife>().torchLife -= 5;
     }
 
     private void Backwards()
@@ -121,11 +123,13 @@ public class VoiceController : MonoBehaviour
         //playerBody.velocity = transform.forward * -25f;
         Player.SetDestination(Back.position);
         move.GetComponent<Enemy>().playerMoving = true;
+        torch.GetComponent<TorchLife>().torchLife -= 5;
     }
 
     private void PickUp()
     {
-
+        //for when they pick up a battery
+        torch.GetComponent<TorchLife>().torchLife = 100;
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -168,6 +172,13 @@ public class VoiceController : MonoBehaviour
             move.GetComponent<Enemy>().playerMoving = false;
             move.GetComponent<Enemy>().playerLocation = player.position;
             move.GetComponent<Enemy>().enemyLocation = enemy.position;
+        }
+        if (collider.tag == "Batteries")
+        {
+            //the player has gone over a battery
+            torch.GetComponent<TorchLife>().torchLife = 100;
+            //destroys the object that has been collided with, i believe this gets rid of the battery
+            Destroy(collider);
         }
     }
 
