@@ -726,10 +726,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
---- !u!4 &966951095 stripped
+--- !u!4 &975116275 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3180986703890667664, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-  m_PrefabInstance: {fileID: 4793953268583354628}
+  m_CorrespondingSourceObject: {fileID: 8923525733110838125, guid: 7ed9cacae8cf27a48ae7bb71f1c1aa92, type: 3}
+  m_PrefabInstance: {fileID: 272204094}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &1692609044
 Mesh:
@@ -895,63 +895,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &4793953268583354628
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4793953268700900596, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_Name
-      value: Movement Colliders
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 36.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.92460513
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 32.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4793953268700900597, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a65e10c200ae5b246bf2e603dd156df0, type: 3}
 --- !u!1001 &5309313292341346375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -960,8 +903,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1951915183751520989, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
+      propertyPath: m_Range
+      value: 5.6067286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951915183751520989, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5309313292086190288, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: m_RootOrder
@@ -1022,6 +969,6 @@ PrefabInstance:
     - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: Forward
       value: 
-      objectReference: {fileID: 966951095}
+      objectReference: {fileID: 975116275}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}

@@ -96,6 +96,7 @@ public class VoiceController : MonoBehaviour
     {
         //transform.Rotate(0f, -90f, 0f);
         Player.SetDestination(Left.position);
+        torch.GetComponent<TorchLife>().torchLife -= 20;
     }
     private void FullRotate()
     {
@@ -106,6 +107,7 @@ public class VoiceController : MonoBehaviour
     {
         //transform.Rotate(0f, 90f, 0f);
         Player.SetDestination(Right.position);
+        torch.GetComponent<TorchLife>().torchLife -= 20;
     }
 
     private void MoveForward()
@@ -114,7 +116,7 @@ public class VoiceController : MonoBehaviour
         //playerBody.velocity = transform.forward * 25f;
         Player.SetDestination(Forward.position);
         move.GetComponent<Enemy>().playerMoving = true;
-        torch.GetComponent<TorchLife>().torchLife -= 5;
+        torch.GetComponent<TorchLife>().torchLife -= 20;
     }
 
     private void Backwards()
@@ -123,7 +125,7 @@ public class VoiceController : MonoBehaviour
         //playerBody.velocity = transform.forward * -25f;
         Player.SetDestination(Back.position);
         move.GetComponent<Enemy>().playerMoving = true;
-        torch.GetComponent<TorchLife>().torchLife -= 5;
+        torch.GetComponent<TorchLife>().torchLife -= 20;
     }
 
     private void PickUp()
