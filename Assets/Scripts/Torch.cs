@@ -9,11 +9,14 @@ public class Torch : MonoBehaviour
     public GameObject theTorch;
     public Light torchLight;
 
+    public GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
         theTorch = this.gameObject;
         torchLight = theTorch.GetComponent<Light>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class Torch : MonoBehaviour
         {
             torchLight.intensity = 0;
             torchLight.range = 1;
+            enemy.GetComponent<Enemy>().agent.speed = 5;
         }
     }
 }
