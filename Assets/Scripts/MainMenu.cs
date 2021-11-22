@@ -26,12 +26,12 @@ public class MainMenu : MonoBehaviour
         commandRecognizer.Start();
     }
 
-    private void startG()
+    public void startG()
     {
         SceneManager.LoadScene(sceneBuildIndex:1);
     }
 
-    private void quitG()
+    public void quitG()
     {
         Application.Quit();
     }
