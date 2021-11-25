@@ -27,6 +27,8 @@ public class VoiceController : MonoBehaviour
     GameObject move;
     GameObject torch;
 
+    [SerializeField] int batteries;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,11 @@ public class VoiceController : MonoBehaviour
         commandActions.Add("look behind you", FullRotate);
         commandActions.Add("look behind", FullRotate);
         commandActions.Add("behind you", FullRotate);
+        //using the battery
+        commandActions.Add("recharge", UseBattery);
+        commandActions.Add("recharge battery", UseBattery);
+        commandActions.Add("use battery", UseBattery);
+        commandActions.Add("change battery", UseBattery);
 
         commandRecognizer = new KeywordRecognizer(commandActions.Keys.ToArray());
         commandRecognizer.OnPhraseRecognized += OnKeywordsRecognised;
@@ -98,6 +105,7 @@ public class VoiceController : MonoBehaviour
         Player.SetDestination(Left.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
     }
+    
     private void FullRotate()
     {
         transform.Rotate(0f, -180f, 0f);
@@ -128,7 +136,7 @@ public class VoiceController : MonoBehaviour
         torch.GetComponent<TorchLife>().torchLife -= 20;
     }
 
-    private void PickUp()
+    private void UseBattery()
     {
         //for when they pick up a battery
         torch.GetComponent<TorchLife>().torchLife = 100;
@@ -178,12 +186,11 @@ public class VoiceController : MonoBehaviour
         if (collider.tag == "Batteries")
         {
             //the player has gone over a battery
-            torch.GetComponent<TorchLife>().torchLife = 100;
+            batteries++;
             //destroys the object that has been collided with, i believe this gets rid of the battery
             Destroy(collider);
         }
     }
-
     
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
