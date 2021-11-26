@@ -138,8 +138,11 @@ public class VoiceController : MonoBehaviour
 
     private void UseBattery()
     {
-        //for when they pick up a battery
-        torch.GetComponent<TorchLife>().torchLife = 100;
+        //for when they want to use a battery that they have picked up
+        if (batteries > 0)
+        {
+            torch.GetComponent<TorchLife>().torchLife = 100;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
