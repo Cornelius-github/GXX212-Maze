@@ -32,6 +32,10 @@ public class VoiceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //making the mouse invisable
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         //opening the main menu
         commandActions.Add("main menu", TheMenu);
         commandActions.Add("main", TheMenu);
