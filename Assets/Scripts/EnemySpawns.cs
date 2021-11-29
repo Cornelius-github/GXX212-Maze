@@ -8,27 +8,21 @@ public class EnemySpawns : MonoBehaviour
     public Transform player;
     public Transform entersMaze;
     public Transform enemy;
-    public Transform enemySpawnpoint;
+    public GameObject enemySpawnpoint;
 
     bool isCreated = false;
 
-    private NavMeshAgent navEnemy;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        navEnemy = GetComponent<NavMeshAgent>();
-        navEnemy.isStopped = true;
         if (isCreated == false)
         {
-            navEnemy.isStopped = false;
-            if (player.position.x > entersMaze.position.x || player.position.z > entersMaze.position.z)
+           if (other.tag == "Player")
             {
-                enemy.position = enemySpawnpoint.position;
+                enemy.position = enemySpawnpoint.transform.position;
                 isCreated = true;
+                Destroy(enemySpawnpoint);
             }
         }
-
-        
     }
 }
