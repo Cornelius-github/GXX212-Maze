@@ -29,6 +29,9 @@ public class VoiceController : MonoBehaviour
 
     [SerializeField] int batteries;
 
+    public Transform canvas;
+    public Transform controlCanvas;
+
     AudioSource steps;
 
     // Start is called before the first frame update
@@ -46,6 +49,17 @@ public class VoiceController : MonoBehaviour
         //pausing the game
         commandActions.Add("pause", PauseMenu);
         commandActions.Add("pause menu", PauseMenu);
+        commandActions.Add("pause game", PauseMenu);
+        //unpauseing the game
+        commandActions.Add("resume", UnPause);
+        commandActions.Add("continue", UnPause);
+        //returning to the main menu
+        commandActions.Add("return to menu", ReturnToMenu);
+        //opening controls
+        commandActions.Add("contorls", ControlsOpen);
+        //close controls
+        commandActions.Add("return", BackButton);
+
         //movement commands
         //turning left
         commandActions.Add("turn left", TurnLeft);
@@ -95,6 +109,9 @@ public class VoiceController : MonoBehaviour
         torch = GameObject.FindGameObjectWithTag("Torch");
 
         Player = GetComponent<NavMeshAgent>();
+
+        canvas.gameObject.SetActive(false);
+        controlCanvas.gameObject.SetActive(false);
     }
 
     private void TheMenu()
@@ -105,6 +122,16 @@ public class VoiceController : MonoBehaviour
     private void PauseMenu()
     {
         //SceneManager.LoadScene(sceneBuildIndex: 2);
+        if (canvas.gameObject.activeInHierarchy == false)
+        {
+            canvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     private void TurnLeft()
@@ -211,5 +238,41 @@ public class VoiceController : MonoBehaviour
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
+    }
+
+    public void ReturnToMenu()
+    {
+        if(canvas.gameObject.activeSelf == true)
+        {
+            SceneManager.LoadScene(0);
+            Time.timeScale = 1;
+        }     
+    }
+
+    public void UnPause()
+    {
+        if(canvas.gameObject.activeSelf == true)
+        {
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }        
+    }
+
+    public void ControlsOpen()
+    {
+        if (canvas.gameObject.activeSelf == true)
+        {
+            canvas.gameObject.SetActive(false);
+            controlCanvas.gameObject.SetActive(true);
+        }        
+    }
+
+    public void BackButton()
+    {
+        if (controlCanvas.gameObject.activeSelf == true)
+        {
+            controlCanvas.gameObject.SetActive(false);
+            canvas.gameObject.SetActive(true);
+        }        
     }
 }
