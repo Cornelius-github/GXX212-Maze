@@ -29,12 +29,16 @@ public class VoiceController : MonoBehaviour
 
     [SerializeField] int batteries;
 
+    AudioSource steps;
+
     // Start is called before the first frame update
     void Start()
     {
         //making the mouse invisable
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        steps = player.GetComponent<AudioSource>();
 
         //opening the main menu
         commandActions.Add("main menu", TheMenu);
@@ -108,6 +112,7 @@ public class VoiceController : MonoBehaviour
         //transform.Rotate(0f, -90f, 0f);
         Player.SetDestination(Left.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
+        steps.Play();
     }
     
     private void FullRotate()
@@ -120,6 +125,7 @@ public class VoiceController : MonoBehaviour
         //transform.Rotate(0f, 90f, 0f);
         Player.SetDestination(Right.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
+        steps.Play();
     }
 
     private void MoveForward()
@@ -129,6 +135,7 @@ public class VoiceController : MonoBehaviour
         Player.SetDestination(Forward.position);
         move.GetComponent<Enemy>().playerMoving = true;
         torch.GetComponent<TorchLife>().torchLife -= 20;
+        steps.Play();
     }
 
     private void Backwards()
@@ -138,6 +145,7 @@ public class VoiceController : MonoBehaviour
         Player.SetDestination(Back.position);
         move.GetComponent<Enemy>().playerMoving = true;
         torch.GetComponent<TorchLife>().torchLife -= 20;
+        steps.Play();
     }
 
     private void UseBattery()
@@ -197,6 +205,7 @@ public class VoiceController : MonoBehaviour
             //destroys the object that has been collided with, i believe this gets rid of the battery
             Destroy(collider);
         }
+        steps.Stop();
     }
     
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
