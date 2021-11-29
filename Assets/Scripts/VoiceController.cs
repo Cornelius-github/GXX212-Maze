@@ -29,6 +29,9 @@ public class VoiceController : MonoBehaviour
 
     [SerializeField] int batteries;
 
+    public Transform canvas;
+    public Transform controlCanvas;
+
     AudioSource steps;
 
     // Start is called before the first frame update
@@ -40,12 +43,22 @@ public class VoiceController : MonoBehaviour
 
         steps = player.GetComponent<AudioSource>();
 
-        //opening the main menu
-        commandActions.Add("main menu", TheMenu);
-        commandActions.Add("main", TheMenu);
+       
         //pausing the game
         commandActions.Add("pause", PauseMenu);
         commandActions.Add("pause menu", PauseMenu);
+        commandActions.Add("pause game", PauseMenu);
+        //unpausing the game
+        commandActions.Add("resume", UnPause);
+        //opening controls
+        commandActions.Add("controls", ControlsOpen);
+        //back button (contorls)
+        commandActions.Add("return", BackButton);
+        //return to menu
+        commandActions.Add("go to menu", ReturnToMenu);
+        commandActions.Add("main menu", ReturnToMenu);
+        commandActions.Add("main", ReturnToMenu);
+
         //movement commands
         //turning left
         commandActions.Add("turn left", TurnLeft);
@@ -95,6 +108,9 @@ public class VoiceController : MonoBehaviour
         torch = GameObject.FindGameObjectWithTag("Torch");
 
         Player = GetComponent<NavMeshAgent>();
+
+        canvas.gameObject.SetActive(false);
+        controlCanvas.gameObject.SetActive(false);
     }
 
     private void TheMenu()
@@ -105,6 +121,16 @@ public class VoiceController : MonoBehaviour
     private void PauseMenu()
     {
         //SceneManager.LoadScene(sceneBuildIndex: 2);
+        if (canvas.gameObject.activeInHierarchy == false)
+        {
+            canvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     private void TurnLeft()
@@ -207,7 +233,48 @@ public class VoiceController : MonoBehaviour
         }
         steps.Stop();
     }
-    
+
+    private void ReturnToMenu()
+    {
+        Debug.Log("doin");
+        if (canvas.gameObject.activeInHierarchy == true)
+        {
+            SceneManager.LoadScene(0);
+            Time.timeScale = 1;
+            
+        }        
+    }
+
+    private void UnPause()
+    {
+        Debug.Log("doin");
+        if (canvas.gameObject.activeInHierarchy == true)        
+        {
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }            
+    }
+
+    private void ControlsOpen()
+    {
+        Debug.Log("doin");
+        if (canvas.gameObject.activeInHierarchy == true)
+        {
+            canvas.gameObject.SetActive(false);
+            controlCanvas.gameObject.SetActive(true);
+        }        
+    }
+
+    private void BackButton()
+    {
+        Debug.Log("doin");
+        if (controlCanvas.gameObject.activeInHierarchy == true) 
+        {
+            controlCanvas.gameObject.SetActive(false);
+            canvas.gameObject.SetActive(true);
+        }        
+    }
+
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
