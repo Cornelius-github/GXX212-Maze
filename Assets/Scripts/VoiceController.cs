@@ -44,8 +44,8 @@ public class VoiceController : MonoBehaviour
     void Start()
     {
         //making the mouse invisable
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         steps = player.GetComponent<AudioSource>();
 
@@ -253,7 +253,7 @@ public class VoiceController : MonoBehaviour
         //tutorial colliders
         if (collider.name == "Room 1")
         {
-            firstGO.SetActive(true);
+            firstGO.SetActive(false);
             secondGO.SetActive(false);
             thirdGO.SetActive(false);
             finalGO.SetActive(false);
