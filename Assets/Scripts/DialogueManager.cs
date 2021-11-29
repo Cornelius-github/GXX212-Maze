@@ -5,11 +5,21 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Animator animator;
+    //public Animator animator;
 
-    public Text guidence;
+    public Text first;
+    public Text second;
+    public Text third;
+    public Text final;
+
+    public GameObject firstGO;
+    public GameObject secondGO;
+    public GameObject thirdGO;
+    public GameObject finalGO;
 
     private Queue<string> sentences;
+
+    public int steps;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
-
-        animator.SetBool("IsOpen", true);
-        Debug.Log("Starting");
+        steps++;
 
         sentences.Clear();
 
@@ -41,12 +49,48 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = sentences.Dequeue();
-        guidence.text = sentence;
+        if (steps == 1)
+        {
+            firstGO.SetActive(true);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
+
+            first.text = sentence;
+        }
+        if (steps == 2)
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(true);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
+
+            second.text = sentence;
+        }
+        if (steps == 3)
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(true);
+            finalGO.SetActive(false);
+
+            third.text = sentence;
+        }
+        if (steps == 4)
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(true);
+
+            final.text = sentence;
+        }
+
     }
 
     void EndDialogue()
     {
         Debug.Log("End");
-        animator.SetBool("IsOpen", false);
+        //animator.SetBool("IsOpen", false);
     }
 }

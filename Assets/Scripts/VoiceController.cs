@@ -32,14 +32,20 @@ public class VoiceController : MonoBehaviour
     public Transform canvas;
     public Transform controlCanvas;
 
+    public GameObject tutorial;
+    public GameObject firstGO;
+    public GameObject secondGO;
+    public GameObject thirdGO;
+    public GameObject finalGO;
+
     AudioSource steps;
 
     // Start is called before the first frame update
     void Start()
     {
         //making the mouse invisable
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         steps = player.GetComponent<AudioSource>();
 
@@ -50,6 +56,7 @@ public class VoiceController : MonoBehaviour
         commandActions.Add("pause game", PauseMenu);
         //unpausing the game
         commandActions.Add("resume", UnPause);
+        commandActions.Add("play", UnPause);
         //opening controls
         commandActions.Add("controls", ControlsOpen);
         //back button (contorls)
@@ -111,6 +118,11 @@ public class VoiceController : MonoBehaviour
 
         canvas.gameObject.SetActive(false);
         controlCanvas.gameObject.SetActive(false);
+
+        firstGO.SetActive(true);
+        secondGO.SetActive(false);
+        thirdGO.SetActive(false);
+        finalGO.SetActive(false);
     }
 
     private void TheMenu()
@@ -135,6 +147,7 @@ public class VoiceController : MonoBehaviour
 
     private void TurnLeft()
     {
+        tutorial.SetActive(false);
         //transform.Rotate(0f, -90f, 0f);
         Player.SetDestination(Left.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
@@ -143,11 +156,13 @@ public class VoiceController : MonoBehaviour
     
     private void FullRotate()
     {
+        tutorial.SetActive(false);
         transform.Rotate(0f, -180f, 0f);
     }
 
     private void TurnRight()
     {
+        tutorial.SetActive(false);
         //transform.Rotate(0f, 90f, 0f);
         Player.SetDestination(Right.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
@@ -156,6 +171,7 @@ public class VoiceController : MonoBehaviour
 
     private void MoveForward()
     {
+        tutorial.SetActive(false);
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
         //playerBody.velocity = transform.forward * 25f;
         Player.SetDestination(Forward.position);
@@ -166,6 +182,7 @@ public class VoiceController : MonoBehaviour
 
     private void Backwards()
     {
+        tutorial.SetActive(false);
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
         //playerBody.velocity = transform.forward * -25f;
         Player.SetDestination(Back.position);
@@ -176,6 +193,7 @@ public class VoiceController : MonoBehaviour
 
     private void UseBattery()
     {
+        tutorial.SetActive(false);
         //for when they want to use a battery that they have picked up
         if (batteries > 0)
         {
@@ -230,6 +248,36 @@ public class VoiceController : MonoBehaviour
             batteries++;
             //destroys the object that has been collided with, i believe this gets rid of the battery
             Destroy(collider);
+        }
+
+        //tutorial colliders
+        if (collider.name == "Room 1")
+        {
+            firstGO.SetActive(true);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
+        }
+        if (collider.name == "Room 2")
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(true);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
+        }
+        if (collider.name == "Room 3" || collider.name == "Room 4")
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(true);
+            finalGO.SetActive(false);
+        }
+        if (collider.name == "Room 5")
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(true);
         }
         steps.Stop();
     }

@@ -602,9 +602,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "this game uses your microphone for movement and actions. if you're microphone
+  m_Text: 'this game uses your microphone for movement and actions. if you''re microphone
     does not work then try tabbing in and out, and checking your default device.
-    \n\ntest it by saying \"DONE\" to get rid of this and play the game!"
+    also in menus you might want to see the commands available to you
+
+
+    test
+    it by saying "DONE" to get rid of this and play the game!'
 --- !u!222 &612889470
 CanvasRenderer:
   m_ObjectHideFlags: 0
