@@ -147,7 +147,6 @@ public class VoiceController : MonoBehaviour
 
     private void TurnLeft()
     {
-        tutorial.SetActive(false);
         //transform.Rotate(0f, -90f, 0f);
         Player.SetDestination(Left.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
@@ -156,13 +155,11 @@ public class VoiceController : MonoBehaviour
     
     private void FullRotate()
     {
-        tutorial.SetActive(false);
         transform.Rotate(0f, -180f, 0f);
     }
 
     private void TurnRight()
     {
-        tutorial.SetActive(false);
         //transform.Rotate(0f, 90f, 0f);
         Player.SetDestination(Right.position);
         torch.GetComponent<TorchLife>().torchLife -= 20;
@@ -171,7 +168,6 @@ public class VoiceController : MonoBehaviour
 
     private void MoveForward()
     {
-        tutorial.SetActive(false);
         //playerBody.AddForce(5f, 0, 0, ForceMode.Impulse);
         //playerBody.velocity = transform.forward * 25f;
         Player.SetDestination(Forward.position);
@@ -182,7 +178,6 @@ public class VoiceController : MonoBehaviour
 
     private void Backwards()
     {
-        tutorial.SetActive(false);
         //playerBody.AddForce(-5f, 0, 0, ForceMode.Impulse);
         //playerBody.velocity = transform.forward * -25f;
         Player.SetDestination(Back.position);
@@ -193,7 +188,6 @@ public class VoiceController : MonoBehaviour
 
     private void UseBattery()
     {
-        tutorial.SetActive(false);
         //for when they want to use a battery that they have picked up
         if (batteries > 0)
         {
@@ -251,28 +245,28 @@ public class VoiceController : MonoBehaviour
         }
 
         //tutorial colliders
-        if (collider.name == "Room 1")
+        if (collider.tag == "Tutorial 1")
         {
             firstGO.SetActive(false);
             secondGO.SetActive(false);
             thirdGO.SetActive(false);
             finalGO.SetActive(false);
         }
-        if (collider.name == "Room 2")
+        if (collider.tag == "Tutorial 2")
         {
             firstGO.SetActive(false);
             secondGO.SetActive(true);
             thirdGO.SetActive(false);
             finalGO.SetActive(false);
         }
-        if (collider.name == "Room 3" || collider.name == "Room 4")
+        if (collider.tag == "Tutorial 3")
         {
             firstGO.SetActive(false);
             secondGO.SetActive(false);
             thirdGO.SetActive(true);
             finalGO.SetActive(false);
         }
-        if (collider.name == "Room 5")
+        if (collider.tag == "Tutorial 4")
         {
             firstGO.SetActive(false);
             secondGO.SetActive(false);

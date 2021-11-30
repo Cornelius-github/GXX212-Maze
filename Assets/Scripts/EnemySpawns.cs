@@ -7,10 +7,10 @@ public class EnemySpawns : MonoBehaviour
 {
     public Transform player;
     public Transform entersMaze;
-    public Transform enemy;
+    public GameObject enemy;
     public GameObject enemySpawnpoint;
 
-    bool isCreated = false;
+    [SerializeField] bool isCreated = false;
 
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +19,10 @@ public class EnemySpawns : MonoBehaviour
         {
            if (other.tag == "Player")
             {
-                enemy.position = enemySpawnpoint.transform.position;
+                //Instantiate(enemy, enemySpawnpoint.transform.position, Quaternion.identity);
+                //enemy.position = enemySpawnpoint.transform.position;
+                enemy.SetActive(true);
+                enemy.GetComponent<NavMeshAgent>().transform.position = enemySpawnpoint.transform.position;
                 isCreated = true;
                 Destroy(enemySpawnpoint);
             }
