@@ -40,6 +40,10 @@ public class VoiceController : MonoBehaviour
 
     AudioSource steps;
 
+    //results
+    public GameObject winPanel;
+    public GameObject losePanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +53,6 @@ public class VoiceController : MonoBehaviour
 
         steps = player.GetComponent<AudioSource>();
 
-       
         //pausing the game
         commandActions.Add("pause", PauseMenu);
         commandActions.Add("pause menu", PauseMenu);
@@ -223,6 +226,7 @@ public class VoiceController : MonoBehaviour
         }
         if (collider.tag == "Stop")
         {
+            winPanel.SetActive(true);
             playerBody.velocity = transform.forward * 0f;
             playerBody.freezeRotation = true;
             move.GetComponent<Enemy>().playerMoving = false;
@@ -231,6 +235,7 @@ public class VoiceController : MonoBehaviour
         }
         if (collider.tag == "Enemy")
         {
+            losePanel.SetActive(true);
             //the player loses
             move.GetComponent<Enemy>().playerMoving = false;
             move.GetComponent<Enemy>().playerLocation = player.position;
