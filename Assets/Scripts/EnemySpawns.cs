@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemySpawns : MonoBehaviour
 {
     public Transform player;
-    public Transform entersMaze;
+    public GameObject entersMaze;
     public GameObject enemy;
     public GameObject enemySpawnpoint;
 
@@ -20,11 +20,14 @@ public class EnemySpawns : MonoBehaviour
            if (other.tag == "Player")
             {
                 //Instantiate(enemy, enemySpawnpoint.transform.position, Quaternion.identity);
-                //enemy.position = enemySpawnpoint.transform.position;
-                enemy.SetActive(true);
-                enemy.GetComponent<NavMeshAgent>().transform.position = enemySpawnpoint.transform.position;
+                //enemy.GetComponent<NavMeshAgent>().ResetPath();
+                enemy.GetComponent<NavMeshAgent>().enabled = false;
+                enemy.transform.position = enemySpawnpoint.transform.position;
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                //enemy.GetComponent<NavMeshAgent>().transform.position = enemySpawnpoint.transform.position;
                 isCreated = true;
-                Destroy(enemySpawnpoint);
+                //Destroy(entersMaze);
+                entersMaze.GetComponent<BoxCollider>().enabled = false;
             }
         }
     }

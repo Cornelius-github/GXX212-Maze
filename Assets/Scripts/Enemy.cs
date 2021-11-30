@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playerStart = player.position;
         enemyStart = enemy.position;
+
     }
 
     // Update is called once per frame
@@ -36,12 +37,10 @@ public class Enemy : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(player.position);
-            Debug.Log("Moving");
         }
         else
         {
             agent.isStopped = true;
-            Debug.Log("Stopped");
         }
     }
 
