@@ -273,12 +273,18 @@ public class VoiceController : MonoBehaviour
             thirdGO.SetActive(false);
             finalGO.SetActive(true);
         }
+        if (collider.tag == "Untagged")
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
+        }
         steps.Stop();
     }
 
     private void ReturnToMenu()
     {
-        Debug.Log("doin");
         if (canvas.gameObject.activeInHierarchy == true)
         {
             SceneManager.LoadScene(0);
@@ -289,7 +295,6 @@ public class VoiceController : MonoBehaviour
 
     private void UnPause()
     {
-        Debug.Log("doin");
         if (canvas.gameObject.activeInHierarchy == true)        
         {
             canvas.gameObject.SetActive(false);
@@ -299,7 +304,6 @@ public class VoiceController : MonoBehaviour
 
     private void ControlsOpen()
     {
-        Debug.Log("doin");
         if (canvas.gameObject.activeInHierarchy == true)
         {
             canvas.gameObject.SetActive(false);
@@ -309,7 +313,6 @@ public class VoiceController : MonoBehaviour
 
     private void BackButton()
     {
-        Debug.Log("doin");
         if (controlCanvas.gameObject.activeInHierarchy == true) 
         {
             controlCanvas.gameObject.SetActive(false);

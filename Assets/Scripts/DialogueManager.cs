@@ -82,8 +82,16 @@ public class DialogueManager : MonoBehaviour
             secondGO.SetActive(false);
             thirdGO.SetActive(false);
             finalGO.SetActive(true);
+            steps++;
 
             final.text = sentence;
+        }
+        if (steps >= 5)
+        {
+            firstGO.SetActive(false);
+            secondGO.SetActive(false);
+            thirdGO.SetActive(false);
+            finalGO.SetActive(false);
         }
 
     }
