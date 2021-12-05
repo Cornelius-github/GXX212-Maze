@@ -1509,6 +1509,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &636082847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1357490796303815812, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
+  m_PrefabInstance: {fileID: 940839105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841850248
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1357490795465824356, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1357490795465824360, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
       propertyPath: m_Pivot.x
@@ -1686,6 +1691,14 @@ PrefabInstance:
       propertyPath: mazeExit
       value: 
       objectReference: {fileID: 6068730732719470133}
+    - target: {fileID: 1357490796303815812, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357490796471754381, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
 --- !u!4 &967572760 stripped
@@ -2400,6 +2413,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7756010275615976416, guid: 585406b58fa3aa3488adc9dff9b6bf37, type: 3}
   m_PrefabInstance: {fileID: 1742609144}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1402493883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1357490796471754381, guid: 58163a41181631d4ebcfe3e5a6b2bcf8, type: 3}
+  m_PrefabInstance: {fileID: 940839105}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1521355021
 Mesh:
   m_ObjectHideFlags: 0
@@ -2576,6 +2594,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4834102498148512502, guid: f702235131fe0c84bac568baf23e3468, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834102498148512502, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_Center.y
       value: 1
       objectReference: {fileID: 0}
@@ -2609,7 +2631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9189363999517368580, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.43
+      value: 50.96
       objectReference: {fileID: 0}
     - target: {fileID: 9189363999517368580, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2617,7 +2639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9189363999517368580, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.36
+      value: 46.48
       objectReference: {fileID: 0}
     - target: {fileID: 9189363999517368580, guid: f702235131fe0c84bac568baf23e3468, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3360,9 +3382,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1086316758}
     - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
+      propertyPath: winPanel
+      value: 
+      objectReference: {fileID: 1402493883}
+    - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: batteries
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
+      propertyPath: losePanel
+      value: 
+      objectReference: {fileID: 636082847}
     - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: controlCanvas
       value: 
