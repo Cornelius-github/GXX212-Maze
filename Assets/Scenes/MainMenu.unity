@@ -590,8 +590,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -602,13 +602,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'this game uses your microphone for movement and actions. if you''re microphone
-    does not work then try tabbing in and out, and checking your default device.
-    also in menus you might want to see the commands available to you
-
-
-    test
-    it by saying "DONE" to get rid of this and play the game!'
+  m_Text: "This game uses microphone input for movement and actions. If you're microphone
+    does not work make sure the game is clicked in and check your default device
+    settings. \n\nIn menus all commands are the readable text\n\nTest the microphone
+    by saying \"DONE\" "
 --- !u!222 &612889470
 CanvasRenderer:
   m_ObjectHideFlags: 0
