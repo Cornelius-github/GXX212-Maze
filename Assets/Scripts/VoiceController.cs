@@ -44,6 +44,11 @@ public class VoiceController : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
 
+    public GameObject image1;
+    public GameObject image2;
+    public GameObject image3;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +131,37 @@ public class VoiceController : MonoBehaviour
         secondGO.SetActive(false);
         thirdGO.SetActive(false);
         finalGO.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (batteries >= 3)
+        {
+            image1.SetActive(true);
+            image2.SetActive(true);
+            image3.SetActive(true);
+        }
+
+        if (batteries == 2)
+        {
+            image1.SetActive(false);
+            image2.SetActive(true);
+            image3.SetActive(true);
+        }
+
+        if (batteries == 1)
+        {
+            image1.SetActive(false);
+            image2.SetActive(false);
+            image3.SetActive(true);
+        }
+
+        if (batteries <= 0)
+        {
+            image1.SetActive(false);
+            image2.SetActive(false);
+            image3.SetActive(false);
+        }
     }
 
     private void TheMenu()
