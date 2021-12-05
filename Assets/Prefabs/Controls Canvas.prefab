@@ -299,11 +299,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: turn around / go back
+  m_Text: Turn around / Go back
 --- !u!1 &6037540986639602166
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,11 +607,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -619,7 +619,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: recharge battery
+  m_Text: Recharge torch
 --- !u!1 &6420256653214960885
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,11 +686,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: use battery /
+  m_Text: Use battery /
 --- !u!1 &6850235519960894012
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,11 +765,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -777,7 +777,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: go left / turn left
+  m_Text: Go left / Turn left
 --- !u!1 &7442146552581272503
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,11 +844,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: move forward / run
+  m_Text: Move forward / Run
 --- !u!1 &8459724470516700695
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,11 +923,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 57c2a69a7f889364387a52a368bb3485, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 18e70213107e8a341a6c5b9ccb6f8c3d, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 80
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -935,4 +935,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: go right / turn right
+  m_Text: Go right / Turn right
