@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Windows.Speech;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class VoiceController : MonoBehaviour
 {
@@ -47,6 +48,10 @@ public class VoiceController : MonoBehaviour
     public GameObject image1;
     public GameObject image2;
     public GameObject image3;
+
+    //play specific timeline track
+    public PlayableDirector defeat;
+    public PlayableDirector victory;
 
 
     // Start is called before the first frame update
@@ -260,18 +265,24 @@ public class VoiceController : MonoBehaviour
             move.GetComponent<Enemy>().playerLocation = player.position;
             move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
+        //win condition
         if (collider.tag == "Stop")
         {
-            winPanel.SetActive(true);
+            victory.Play();
+            StartCoroutine(WinCutscene());
+            
             playerBody.velocity = transform.forward * 0f;
             playerBody.freezeRotation = true;
             move.GetComponent<Enemy>().playerMoving = false;
             move.GetComponent<Enemy>().playerLocation = player.position;
             move.GetComponent<Enemy>().enemyLocation = enemy.position;
         }
+        //lose condition
         if (collider.tag == "Enemy")
         {
-            losePanel.SetActive(true);
+            defeat.Play();
+            StartCoroutine(DefeatCutscene());
+            
             //the player loses
             move.GetComponent<Enemy>().playerMoving = false;
             move.GetComponent<Enemy>().playerLocation = player.position;
@@ -364,5 +375,19 @@ public class VoiceController : MonoBehaviour
     private void OnKeywordsRecognised(PhraseRecognizedEventArgs args)
     {
         commandActions[args.text].Invoke();
+    }
+
+    IEnumerator WinCutscene()
+    {
+        yield return new WaitForSecondsRealtime(8);
+
+        winPanel.SetActive(true);
+    }
+
+    IEnumerator DefeatCutscene()
+    {
+        yield return new WaitForSecondsRealtime(4);
+
+        losePanel.SetActive(true);
     }
 }
