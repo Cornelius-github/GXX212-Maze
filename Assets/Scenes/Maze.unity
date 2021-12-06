@@ -3820,6 +3820,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1026315169}
     - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
+      propertyPath: defeat
+      value: 
+      objectReference: {fileID: 785983067}
+    - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: image1
       value: 
       objectReference: {fileID: 473355200}
@@ -3847,6 +3851,10 @@ PrefabInstance:
       propertyPath: thirdGO
       value: 
       objectReference: {fileID: 631225363}
+    - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
+      propertyPath: victory
+      value: 
+      objectReference: {fileID: 1955404322}
     - target: {fileID: 5309313292086190303, guid: 8f1b5d6a4d3050a469a4526b434d3f91, type: 3}
       propertyPath: secondGO
       value: 
