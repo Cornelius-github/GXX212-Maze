@@ -52,6 +52,9 @@ public class VoiceController : MonoBehaviour
     //play specific timeline track
     public PlayableDirector defeat;
     public PlayableDirector victory;
+    public Camera cameraWin;
+    public Camera cameraLose;
+    public Camera mainCamera;
 
 
     // Start is called before the first frame update
@@ -236,6 +239,7 @@ public class VoiceController : MonoBehaviour
         if (batteries > 0)
         {
             torch.GetComponent<TorchLife>().torchLife = 100;
+            batteries -= 1;
         }
     }
 
@@ -379,13 +383,18 @@ public class VoiceController : MonoBehaviour
 
     IEnumerator WinCutscene()
     {
+        mainCamera.gameObject.SetActive(false);
+        cameraWin.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(8);
 
         winPanel.SetActive(true);
+        
     }
 
     IEnumerator DefeatCutscene()
     {
+        mainCamera.gameObject.SetActive(false);
+        cameraLose.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(4);
 
         losePanel.SetActive(true);

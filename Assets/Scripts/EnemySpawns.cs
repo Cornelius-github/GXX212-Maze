@@ -12,6 +12,8 @@ public class EnemySpawns : MonoBehaviour
 
     [SerializeField] bool isCreated = false;
 
+    public Canvas tutorial;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +30,8 @@ public class EnemySpawns : MonoBehaviour
                 isCreated = true;
                 //Destroy(entersMaze);
                 entersMaze.GetComponent<BoxCollider>().enabled = false;
+
+                tutorial.gameObject.SetActive(false);
             }
         }
     }
