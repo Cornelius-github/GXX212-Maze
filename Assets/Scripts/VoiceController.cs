@@ -282,7 +282,7 @@ public class VoiceController : MonoBehaviour
             //the player has gone over a battery
             batteries++;
             //destroys the object that has been collided with, i believe this gets rid of the battery
-            Destroy(collider);
+            //Destroy(collider);
         }
 
         //tutorial colliders
