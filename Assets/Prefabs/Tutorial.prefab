@@ -344,7 +344,8 @@ MonoBehaviour:
   m_Text: 'You are now on your own.
 
     Quick! The mosnter is after you! Your torch
-    will keep the monster at bay. You need to ESCAPE!'
+    will keep the monster at bay. You need to ESCAPE! (You can pause at any time
+    by saying "Pause Game")'
 --- !u!1 &7991263635710856729
 GameObject:
   m_ObjectHideFlags: 0
