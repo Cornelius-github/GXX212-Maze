@@ -21,6 +21,8 @@ public class Enemy : MonoBehaviour
 
     public bool playerMoving = false;
 
+    public Animator enemyAnim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +38,13 @@ public class Enemy : MonoBehaviour
     {
         if (playerMoving == true)
         {
+            enemyAnim.SetBool("moving", true);
             agent.isStopped = false;
             agent.SetDestination(player.position);
         }
         else
         {
+            enemyAnim.SetBool("moving", false);
             agent.isStopped = true;
         }
     }
